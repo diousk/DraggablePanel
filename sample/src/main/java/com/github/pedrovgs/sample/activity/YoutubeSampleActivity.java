@@ -19,7 +19,7 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.widget.ImageView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 import butterknife.OnClick;
 import com.github.pedrovgs.DraggableListener;
 import com.github.pedrovgs.DraggablePanel;
@@ -47,8 +47,8 @@ public class YoutubeSampleActivity extends FragmentActivity {
           + "-wolverine-poster.jpg";
   private static final String VIDEO_POSTER_TITLE = "X-Men: Days of Future Past";
 
-  @InjectView(R.id.iv_thumbnail) ImageView thumbnailImageView;
-  @InjectView(R.id.draggable_panel) DraggablePanel draggablePanel;
+  @BindView(R.id.iv_thumbnail) ImageView thumbnailImageView;
+  @BindView(R.id.draggable_panel) DraggablePanel draggablePanel;
 
   private YouTubePlayer youtubePlayer;
   private YouTubePlayerSupportFragment youtubeFragment;
@@ -59,7 +59,7 @@ public class YoutubeSampleActivity extends FragmentActivity {
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_youtube_sample);
-    ButterKnife.inject(this);
+    ButterKnife.bind(this);
     initializeYoutubeFragment();
     initializeDraggablePanel();
     hookDraggablePanelListeners();

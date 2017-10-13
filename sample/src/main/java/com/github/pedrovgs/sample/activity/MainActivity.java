@@ -18,6 +18,14 @@ package com.github.pedrovgs.sample.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import com.github.pedrovgs.sample.R;
@@ -25,22 +33,40 @@ import com.github.pedrovgs.sample.R;
 /**
  * @author Pedro Vicente Gómez Sánchez.
  */
-public class MainActivity extends Activity {
+public class MainActivity extends AppCompatActivity {
+
+  @BindView(R.id.iv_places)
+  ImageView placesImageView;
+
+  @BindView(R.id.iv_tv_shows)
+  ImageView tvShowImageView;
 
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
-    ButterKnife.inject(this);
+    ButterKnife.bind(MainActivity.this);
   }
 
-  @OnClick(R.id.iv_places) void openSimpleSampleActivity() {
-    Intent intent = new Intent(this, PlacesSampleActivity.class);
-    startActivity(intent);
-  }
+  @Override
+  protected void onPostCreate(@Nullable Bundle savedInstanceState) {
+    super.onPostCreate(savedInstanceState);
 
-  @OnClick(R.id.iv_tv_shows) void openTvShowsSampleActivity() {
-    Intent intent = new Intent(this, TvShowsActivity.class);
-    startActivity(intent);
+    placesImageView.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        Log.d("MainActivity", "iv_places.onClick");
+        Intent intent = new Intent(MainActivity.this, PlacesSampleActivity.class);
+        startActivity(intent);
+      }
+    });
+
+    tvShowImageView.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        Intent intent = new Intent(MainActivity.this, TvShowsActivity.class);
+        startActivity(intent);
+      }
+    });
   }
 
   @OnClick(R.id.iv_youtube) void openYoutubeSampleActivity() {

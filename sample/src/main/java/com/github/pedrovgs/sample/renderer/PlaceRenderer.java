@@ -22,7 +22,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 import com.github.pedrovgs.sample.R;
 import com.github.pedrovgs.sample.viewmodel.PlaceViewModel;
 import com.pedrogomez.renderers.Renderer;
@@ -38,8 +38,8 @@ public class PlaceRenderer extends Renderer<PlaceViewModel> {
 
   private Context context;
 
-  @InjectView(R.id.tv_name) TextView nameTextView;
-  @InjectView(R.id.iv_photo) ImageView photoImageView;
+  @BindView(R.id.tv_name) TextView nameTextView;
+  @BindView(R.id.iv_photo) ImageView photoImageView;
 
   public PlaceRenderer(Context context) {
     this.context = context;
@@ -49,7 +49,7 @@ public class PlaceRenderer extends Renderer<PlaceViewModel> {
    * Apply ButterKnife inject method to support view injections.
    */
   @Override protected void setUpView(View view) {
-    ButterKnife.inject(this, view);
+    ButterKnife.bind(this, view);
   }
 
   @Override protected void hookListeners(View view) {

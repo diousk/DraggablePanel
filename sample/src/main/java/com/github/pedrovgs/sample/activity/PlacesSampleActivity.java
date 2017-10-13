@@ -26,8 +26,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
+
+import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 import com.github.pedrovgs.DraggablePanel;
 import com.github.pedrovgs.sample.R;
 import com.github.pedrovgs.sample.fragment.PlaceFragment;
@@ -56,10 +57,10 @@ public class PlacesSampleActivity extends DIFragmentActivity {
   private static final int DELAY_MILLIS = 50;
   private static final float ZOOM = 10f;
 
-  @InjectView(R.id.lv_places) ListView placesListView;
-  @InjectView(R.id.draggable_panel) DraggablePanel draggablePanel;
-  @InjectView(R.id.drawer_left) DrawerLayout drawerlayoutLeft;
-  @InjectView(R.id.iv_drawer) ImageView drawerImageView;
+  @BindView(R.id.lv_places) ListView placesListView;
+  @BindView(R.id.draggable_panel) DraggablePanel draggablePanel;
+  @BindView(R.id.drawer_left) DrawerLayout drawerlayoutLeft;
+  @BindView(R.id.iv_drawer) ImageView drawerImageView;
 
   @Inject RendererAdapter<PlaceViewModel> placesAdapter;
 
@@ -76,7 +77,7 @@ public class PlacesSampleActivity extends DIFragmentActivity {
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_place_sample);
-    ButterKnife.inject(this);
+    ButterKnife.bind(this);
     initializeFragments();
     initializeListView();
     initializeDraggablePanel();

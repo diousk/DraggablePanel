@@ -21,8 +21,10 @@
           android:id="@+id/iv_places"
           android:layout_width="fill_parent"
           android:layout_height="fill_parent"
+          android:clickable="true"
           style="@style/image_view"
-          android:src="@drawable/places_button_image"/>
+          android:src="@drawable/places_button_image"
+          android:focusable="true" />
 
       <TextView
           android:layout_width="wrap_content"
@@ -43,6 +45,7 @@
           android:id="@+id/iv_tv_shows"
           android:layout_width="fill_parent"
           android:layout_height="fill_parent"
+          android:clickable="true"
           android:src="@drawable/tv_show_button_image"
           style="@style/image_view"/>
 
@@ -73,6 +76,7 @@
 
       <ImageView
           android:id="@+id/iv_youtube"
+          android:clickable="true"
           android:layout_width="fill_parent"
           android:layout_height="fill_parent"
           android:src="@drawable/youtube_button_image"
@@ -96,6 +100,7 @@
 
       <ImageView
           android:id="@+id/iv_video"
+          android:clickable="true"
           android:layout_width="fill_parent"
           android:layout_height="fill_parent"
           android:src="@drawable/video_button_image"
