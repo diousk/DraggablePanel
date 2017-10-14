@@ -28,6 +28,7 @@ android {
   lintOptions {
     abortOnError false
   }
+    buildToolsVersion '26.0.2'
 }
 
 apply from: 'https://raw.github.com/jpardogo/gradle-mvn-push/master/gradle-mvn-push.gradle'
